@@ -1,0 +1,38 @@
+ body {
+
+    background-color: lightblue ;
+}
+
+h1 {
+
+    color: darkblue;
+    text-align:center ;
+}
+
+p{
+    font-size: 18px;
+} 
+
+.boxes {
+    display: flex;
+    justify-content: space-between ; 
+    page : 10px;
+}
+.box{
+    background-color:darkblue;
+    color: white ;
+    padding : 20px ;
+    margin : 5px;
+
+} 
+
+img {
+    max-width: 100% ;
+    height: auto ;
+}
+
+@media (max-width: 600px ) {
+    .boxes {
+        flex-direction : column ;
+    }
+}
