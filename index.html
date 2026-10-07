@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>welcome, welcome </h1>
+        <h1 id="myTitle">Welcome, welcome </h1>
+        <button onclick="sayHello()"> Click Here </button>
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -24,17 +25,27 @@
             <div class="box">3</div>
         </div>
 
-    <script>
-        console.log("welcome the world")
-        console.log("Hi man")
-        console.log(3 + 5 )
+       <script>
+        let name = "Abd_Divid";
+        console.log("Welcome The World");
+        console.log("This is : " + name);
         let age = 22 ;
-        console.log(age + 3)
-        let nam = "Divid";
-        console.log("welcome " + nam + " !");
+        console.log("My age is: " + age);
+        console.log("Also, Hi " + name);
 
+        // function sayHello() {
+        //     alert("Hello man, you are great")
+        // }
 
-    </script>
+        // function sayHello(){ 
+        //     let name = "Abd_Divid";
+        //     alert ("Welcome agian " + name + " !")
+        // }
+
+        function sayHello(){
+            document.getElementById("myTitle").textContent ="Welcome in World JavaScript!!"
+        }
+       </script>
 
     </body>
     
