@@ -8,10 +8,13 @@
     <body>
         <h1 id="myTitle">Welcome, welcome </h1>
         <button onclick="sayHello()"> Click Here </button>
+        <p id="counter">0</p>
+        <button onclick="increment()"> click for number </button>
+        <button onclick="reset()">click for zero</button>
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
-        <a href="https://www.google.com"> روح على جوجل</a>
+        <a href="https://www.google.com"> go to Google </a>
         <hr>
         <img src="C:\Users\st\Pictures\Screenshots\Screenshot 2026-10-05 005820.png" alt="this is trying">
         <ul>
@@ -44,6 +47,17 @@
 
         function sayHello(){
             document.getElementById("myTitle").textContent ="Welcome in World JavaScript!!"
+        }
+
+        let count =0 ;
+        function increment(){
+            count = count + 1 ;
+            document.getElementById("counter").textContent = count ;
+        }
+
+        function reset(){
+            count = 0 ;
+            document.getElementById("counter").textContent = count;
         }
        </script>
 
