@@ -15,7 +15,7 @@ p{
 
 .boxes {
     display: flex;
-    justify-content: space-between ; 
+    justify-content: center ; 
     page : 10px;
 }
 .box{

@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <title>The first page </title>
@@ -7,10 +7,15 @@
     </head>
     <body>
         <h1 id="myTitle">Welcome, welcome </h1>
-        <button onclick="sayHello()"> Click Here </button>
+        <button onclick="sayHello()"> Click Here for title </button>
         <p id="counter">0</p>
-        <button onclick="increment()"> click for number </button>
+        <button onclick="increment()"> click for num+ </button>
         <button onclick="reset()">click for zero</button>
+        <button onclick="mayns()">click for num- </button>
+        <input id="myNumber" type="number" placeholder="write a number">
+        <button onclick="jumpTo()">jump to number </button>
+        <p id="hint"></p>
+        <button onclick="guess()">Guess</button>
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -45,25 +50,57 @@
         //     alert ("Welcome agian " + name + " !")
         // }
 
+        function updateColor(){
+            if (count>10){
+                document.getElementById("counter").style.color ="red";
+            }else{
+                document.getElementById("counter").style.color ="black";
+            }
+        }
+        
         function sayHello(){
             document.getElementById("myTitle").textContent ="Welcome in World JavaScript!!"
         }
-
+        
         let count =0 ;
+        let secret = 7 ;
         function increment(){
-            count = count + 1 ;
+            count ++ ;
             document.getElementById("counter").textContent = count ;
+            updateColor();
         }
-
+        
         function reset(){
             count = 0 ;
             document.getElementById("counter").textContent = count;
+            updateColor();
+        }
+        function mayns (){
+            count --  ;
+            document.getElementById("counter").textContent = count ;
+            updateColor();
+        }
+
+        function jumpTo(){
+            let n = document.getElementById("myNumber").value;
+            count = Number(n);
+            document.getElementById("counter").textContent = count ;
+            updateColor();
+        }
+
+        function guess(){
+            let g = Number(document.getElementById("myNumber").value);
+            if (g===secret){
+                document.getElementById("hint").textContent = "True ✅ ";
+            }else if (g > secret){
+                document.getElementById("hint").textContent = "False❌  ,small ";
+            }else{
+                document.getElementById("hint").textContent = "False❌  ,large  "
+
+            }
         }
        </script>
 
     </body>
     
-    </html>  
-    
-     
-
+    </html>     
