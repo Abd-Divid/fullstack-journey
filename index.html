@@ -16,6 +16,8 @@
         <button onclick="jumpTo()">jump to number </button>
         <p id="hint"></p>
         <button onclick="guess()">Guess</button>
+        <p id="numbers"></p>
+        <button onclick="countToTen()">counter to ten</button>
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -98,6 +100,14 @@
                 document.getElementById("hint").textContent = "False❌  ,large  "
 
             }
+        }
+        function countToTen(){
+            let n = Number(document.getElementById("myNumber").value);
+            let text="";
+            for(let i = 1; i<=n ; i++){
+                text = text + i + " ";
+            }
+            document.getElementById("numbers").textContent = text ;
         }
        </script>
 
