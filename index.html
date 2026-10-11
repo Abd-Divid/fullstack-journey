@@ -18,6 +18,10 @@
         <button onclick="guess()">Guess</button>
         <p id="numbers"></p>
         <button onclick="countToTen()">counter to ten</button>
+        <ul id="goalsList"></ul>
+        <button onclick="showGoals()">showing my goals</button>
+        <input id="newGoal" type="text" placeholder="write a new goal">
+        <button onclick="addGoal()">add a goal</button>
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -108,6 +112,19 @@
                 text = text + i + " ";
             }
             document.getElementById("numbers").textContent = text ;
+        }
+        let goals = ["learn HTML","learn CSS","learn JavaScript","you will get Full-Stack"];
+        function showGoals(){
+            let html = "";
+            for (let i = 0 ; i < goals.length ; i++ ){
+                html = html + "<li>" + goals[i] + "</li>";
+            }
+            document.getElementById("goalsList").innerHTML = html ;
+        }
+        function addGoal(){
+            let g = document.getElementById("newGoal").value;
+            goals.push(g);
+            showGoals();
         }
        </script>
 
