@@ -1,27 +1,50 @@
  <!DOCTYPE html>
+ 
 <html>
     <head>
-        <title>The first page </title>
+          <title>The first page </title>
+        
         <link rel="stylesheet" href="style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <h1 id="myTitle">Welcome, welcome </h1>
+       
         <button onclick="sayHello()"> Click Here for title </button>
+   
+        
         <p id="counter">0</p>
+      
+       
         <button onclick="increment()"> click for num+ </button>
+   
+     
         <button onclick="reset()">click for zero</button>
+        
         <button onclick="mayns()">click for num- </button>
         <input id="myNumber" type="number" placeholder="write a number">
         <button onclick="jumpTo()">jump to number </button>
+        
         <p id="hint"></p>
+        
         <button onclick="guess()">Guess</button>
+        
         <p id="numbers"></p>
+       
         <button onclick="countToTen()">counter to ten</button>
+      
         <ul id="goalsList"></ul>
+      
         <button onclick="showGoals()">showing my goals</button>
+       
         <input id="newGoal" type="text" placeholder="write a new goal">
+      
         <button onclick="addGoal()">add a goal</button>
+
+        <div id="card"></div>
+        <button onclick="showCard()">showing your card</button>
+        <button onclick="growUp()">add one age </button>
+      
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -55,7 +78,7 @@
         //     let name = "Abd_Divid";
         //     alert ("Welcome agian " + name + " !")
         // }
-
+        
         function updateColor(){
             if (count>10){
                 document.getElementById("counter").style.color ="red";
@@ -63,11 +86,9 @@
                 document.getElementById("counter").style.color ="black";
             }
         }
-        
         function sayHello(){
             document.getElementById("myTitle").textContent ="Welcome in World JavaScript!!"
         }
-        
         let count =0 ;
         let secret = 7 ;
         function increment(){
@@ -75,7 +96,6 @@
             document.getElementById("counter").textContent = count ;
             updateColor();
         }
-        
         function reset(){
             count = 0 ;
             document.getElementById("counter").textContent = count;
@@ -86,14 +106,12 @@
             document.getElementById("counter").textContent = count ;
             updateColor();
         }
-
         function jumpTo(){
             let n = document.getElementById("myNumber").value;
             count = Number(n);
             document.getElementById("counter").textContent = count ;
             updateColor();
         }
-
         function guess(){
             let g = Number(document.getElementById("myNumber").value);
             if (g===secret){
@@ -121,10 +139,25 @@
             }
             document.getElementById("goalsList").innerHTML = html ;
         }
+
         function addGoal(){
             let g = document.getElementById("newGoal").value;
             goals.push(g);
             showGoals();
+        }
+        let person = { name: "Abd" , age : 20 , city : "Damascus", Job :"The future programming" };
+
+        function showCard(){
+            document.getElementById("card").innerHTML = 
+            "<h3>" + person.name + "</h3>" +
+            "<p>" + person.age + "</p>" +
+            "<p>" + person.city + "</p>" +
+            "<p>" + person.Job + "</p>" 
+        }
+
+        function growUp(){
+            person.age = person.age + 1   ;
+            showCard();
         }
        </script>
 
