@@ -44,7 +44,15 @@
         <div id="card"></div>
         <button onclick="showCard()">showing your card</button>
         <button onclick="growUp()">add one age </button>
-      
+
+
+        <input id="num1" type="number" placeholder="The first number">
+        <input id="num2" type="number" placeholder="The secound number">
+        <p id="result"></p>
+        <button onclick="doAdd()">sum</button>
+        <button onclick="doMultiply()">multiply</button>
+
+
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
         <hr>
@@ -158,6 +166,27 @@
         function growUp(){
             person.age = person.age + 1   ;
             showCard();
+        }
+        
+        
+        function add(a, b){
+            return a + b ;
+        }
+
+        function doAdd(){
+            let x = Number(document.getElementById("num1").value);
+            let y = Number(document.getElementById("num2").value);
+            let sum = add(x, y);
+            document.getElementById("result").textContent = "the result is " + sum ;
+        }
+        function multiply(a, b){
+            return a * b ; 
+        }
+        function doMultiply(){
+            let x = Number(document.getElementById("num1").value);
+            let y = Number(document.getElementById("num2").value);
+            let product = multiply(x, y);
+            document.getElementById("result").textContent = "The result is " + product ;
         }
        </script>
 
