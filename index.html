@@ -218,11 +218,15 @@
         }
         
         let tasks = ["learning JavaScript" , "every day I work commit"];
+        let saved = localStorage.getItem("myTasks");
+        if (saved){
+            tasks = JSON.parse(saved);
+        }
 
         function renderTasks(){
             let html = "";
             for (let i=0 ; i<tasks.length ; i++){
-                html = html + "<li>" + tasks[i] + '<button onclick="deleteTask(' + i + ')">❌</button></li>';
+                html = html + "<li>" + tasks[i] + '<button onclick="deleteTask(' + i + ')"> ❌ </button></li>';
             }
             document.getElementById("taskList").innerHTML = html ; 
 
@@ -233,10 +237,13 @@
             let t = document.getElementById("taskInput").value;
             tasks.push(t);
             renderTasks();
+            localStorage.setItem("myTasks" , JSON.stringify(tasks));
+            document.getElementById("taskInput").value = "" ;
         }
         function deleteTask(i){
             tasks.splice(i , 1);
             renderTasks();
+            localStorage.setItem("myTasks" , JSON.stringify(tasks));
         }
 
 
