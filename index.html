@@ -226,7 +226,7 @@
         function renderTasks(){
             let html = "";
             for (let i=0 ; i<tasks.length ; i++){
-                html = html + "<li>" + tasks[i] + '<button onclick="deleteTask(' + i + ')"> ❌ </button></li>';
+                html = html + ` <li> ${tasks[i]} <button onclick="deleteTask(${i})">❌</button></li>`;
             }
             document.getElementById("taskList").innerHTML = html ; 
 
@@ -245,10 +245,6 @@
             renderTasks();
             localStorage.setItem("myTasks" , JSON.stringify(tasks));
         }
-
-
-
-
 
 
        </script>
