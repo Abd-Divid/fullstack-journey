@@ -55,7 +55,7 @@
         <div id="products"></div>
         <button onclick="showProducts()">showing products</button>
 
-        <input  id="taskInput" type="text" placeholder="new task">
+        <input  id="taskInput" type="text" placeholder="new task" onkeydown="checkEnter(event)">
         <button onclick="addTask()">add a task</button>
         <ul id="taskList"></ul>
 
@@ -235,6 +235,9 @@
 
         function addTask(){
             let t = document.getElementById("taskInput").value;
+            if (t === ""){
+                return;
+            }
             tasks.push(t);
             renderTasks();
             localStorage.setItem("myTasks" , JSON.stringify(tasks));
@@ -244,6 +247,12 @@
             tasks.splice(i , 1);
             renderTasks();
             localStorage.setItem("myTasks" , JSON.stringify(tasks));
+        }
+
+        function checkEnter(event){
+            if (event.key === "Enter"){
+                addTask();
+            }
         }
 
 
