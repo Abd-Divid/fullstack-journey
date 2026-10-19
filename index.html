@@ -59,6 +59,9 @@
         <button onclick="addTask()">add a task</button>
         <ul id="taskList"></ul>
 
+        <p id="countdown"></p>
+        <button onclick="startCountdown()">starting counter down</button>
+
 
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
@@ -253,6 +256,16 @@
             if (event.key === "Enter"){
                 addTask();
             }
+        }
+
+        function startCountdown(){
+            let i = Number(document.getElementById("myNumber").value);
+            let text = "";
+            while (i>0){
+                text = text + i + " " ; 
+                i-- ; 
+            }
+            document.getElementById("countdown").textContent = text  + " starting ";
         }
 
 
