@@ -88,6 +88,12 @@
         console.log("My age is: " + age);
         console.log("Also, Hi " + name);
 
+        const greet = (name) => {
+            let msg ="welcome " + name + " !";
+            return msg ; 
+        };
+        console.log(greet("Abdul Majid"))
+
         // function sayHello() {
         //     alert("Hello man, you are great")
         // }
@@ -179,9 +185,7 @@
         }
         
         
-        function add(a, b){
-            return a + b ;
-        }
+        const add = (a, b) => a + b ;
 
         function doAdd(){
             let x = Number(document.getElementById("num1").value);
@@ -189,9 +193,9 @@
             let sum = add(x, y);
             document.getElementById("result").textContent = "the result is " + sum ;
         }
-        function multiply(a, b){
-            return a * b ; 
-        }
+        
+        const multiply = (a, b) => a * b ;
+
         function doMultiply(){
             let x = Number(document.getElementById("num1").value);
             let y = Number(document.getElementById("num2").value);
