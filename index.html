@@ -52,6 +52,11 @@
         <button onclick="doAdd()">sum</button>
         <button onclick="doMultiply()">multiply</button>
 
+
+        <input id="searchInput" type="text" placeholder="seach for a product ...">
+        <button onclick="searchProducts()">search</button>
+
+
         <div id="products"></div>
         <button onclick="showProducts()">showing products</button>
 
@@ -68,7 +73,7 @@
         <hr>
         <a href="https://www.google.com"> go to Google </a>
         <hr>
-        <img src="C:\Users\st\Pictures\Screenshots\Screenshot 2026-10-05 005820.png" alt="this is trying">
+        <img src="C:\Users\st\Pictures\my phone" alt="this is trying">
         <ul>
             <li>learing HTML</li>
             <li>learing CSS</li>
@@ -270,6 +275,17 @@
                 i-- ; 
             }
             document.getElementById("countdown").textContent = text  + " starting ";
+        }
+
+        function searchProducts(){
+            let q = document.getElementById("searchInput").value;
+            let results = products.filter(p => p.name.includes(q));
+            let html = "";
+            results.forEach(p  => {
+                html += `<p>${p.name} - $${p.price}</p>`;
+
+            });
+            document.getElementById("products").innerHTML = html ;
         }
 
 
