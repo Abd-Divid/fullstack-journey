@@ -214,7 +214,7 @@
             { name : "keypowrd" , price : 45 }
         ];
         function showProducts(){
-            let html = products.map(p => `<p> ${p.name} - $${p.price}</p>`).join("");
+            let html = products.map(p => `<p> ${p.name} - $${p.price} ${p.price > 100 ? "Expensive" : "Good"} </p>`).join("");
             html += `<p><b>sum: $${totalPrice()}</b></p>`;
             document.getElementById("products").innerHTML = html ;
         }
@@ -288,6 +288,10 @@
 
         let names = products.map(p => p.name);
         console.log(names);
+
+        let Age = 20 ; 
+        let type = Age >= 18 ? "Man" : "Boy";
+        console.log(type);
 
 
        </script>
