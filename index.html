@@ -214,11 +214,9 @@
             { name : "keypowrd" , price : 45 }
         ];
         function showProducts(){
-            let html = "";
-            for (let i = 0 ; i < products.length ; i++ ){
-                html = html + "<p>" + products[i].name + " __ $" + products[i].price + "</p>";
-            }
-            document.getElementById("products").innerHTML = html + "<p><b> sum : $" + totalPrice() + "</b></p>";
+            let html = products.map(p => `<p> ${p.name} - $${p.price}</p>`).join("");
+            html += `<p><b>sum: $${totalPrice()}</b></p>`;
+            document.getElementById("products").innerHTML = html ;
         }
 
         function totalPrice(){
@@ -287,6 +285,9 @@
             });
             document.getElementById("products").innerHTML = html ;
         }
+
+        let names = products.map(p => p.name);
+        console.log(names);
 
 
        </script>
