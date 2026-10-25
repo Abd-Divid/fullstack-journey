@@ -86,15 +86,15 @@
         </div>
 
        <script>
-        let name = "Abd_Divid";
+        let nam = "Abd_Divid";
         console.log("Welcome The World");
-        console.log("This is : " + name);
+        console.log("This is : " + nam);
         let age = 22 ;
         console.log("My age is: " + age);
-        console.log("Also, Hi " + name);
+        console.log("Also, Hi " + nam);
 
-        const greet = (name) => {
-            let msg ="welcome " + name + " !";
+        const greet = (nam) => {
+            let msg ="welcome " + nam + " !";
             return msg ; 
         };
         console.log(greet("Abdul Majid"))
@@ -209,12 +209,12 @@
         }
 
         let products = [
-            { name: "Labtub" , price : 1500 }, 
+            { name : "Labtub" , price : 1500 }, 
             { name : "mause" , price : 25 },
             { name : "keypowrd" , price : 45 }
         ];
         function showProducts(){
-            let html = products.map(p => `<p> ${p.name} - $${p.price} ${p.price > 100 ? "Expensive" : "Good"} </p>`).join("");
+            let html = products.map(({name , price }) => `<p> ${name} - $${price} ${price > 100 ? "Expensive" : "Good"} </p>`).join("");
             html += `<p><b>sum: $${totalPrice()}</b></p>`;
             document.getElementById("products").innerHTML = html ;
         }
@@ -292,6 +292,11 @@
         let Age = 20 ; 
         let type = Age >= 18 ? "Man" : "Boy";
         console.log(type);
+
+        let { name, price } = products[0];
+        console.log(name);
+        console.log(price);
+
 
 
        </script>
