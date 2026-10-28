@@ -9,6 +9,7 @@
     </head>
     <body>
         <h1 id="myTitle">Welcome, welcome </h1>
+        <h2 id="clock"></h2>
        
         <button onclick="sayHello()"> Click Here for title </button>
    
@@ -304,6 +305,13 @@
         let older = { ...person , age : person.age + 1 };
         console.log(older);
         console.log(person);
+
+        function updateClock(){
+            let now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock , 1000);
+        updateClock();
         
 
 
