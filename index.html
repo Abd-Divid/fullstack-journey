@@ -67,6 +67,7 @@
 
         <p id="countdown"></p>
         <button onclick="startCountdown()">starting counter down</button>
+        <button onclick="sortCheap()">The cheaper first</button>
 
 
         <h2> My trip had started </h2>
@@ -312,6 +313,18 @@
         }
         setInterval(updateClock , 1000);
         updateClock();
+
+        let timer = setInterval(updateClock , 1000);
+        clearInterval(timer);
+
+        let sorted = [...products].sort((a, b) => a.price - b.price );
+        console.log(sorted);
+
+        function sortCheap(){
+            let sorted = [...products].sort((a, b) => a.price - b.price);
+            let html = sorted.map(({name , price}) => `<p> ${name} - $${price} ${price > 100 ? "Expensive" : "Cheap"}</p>`).join("");
+            document.getElementById("products").innerHTML = html ;
+        }
         
 
 
