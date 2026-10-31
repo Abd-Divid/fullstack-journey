@@ -73,6 +73,9 @@
         <div id="posts"></div>
         <button onclick="loadPosts()">fetch real post</button>
 
+        <div id="users"></div>
+        <button onclick="loadUsers()">fetch users</button>
+
 
         <h2> My trip had started </h2>
         <p>I'm Abd, and this is my first website </p>
@@ -336,7 +339,18 @@
             .then(posts => {
                 document.getElementById("posts").innerHTML =
                 posts.map(p => `<p> ${p.title}</p>`).join("");
+            })
+            .catch(() => {
+                document.getElementById("posts").innerHTML = "Try agian at later time ";
             });
+        }
+
+        async function loadUsers() {
+            let res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=5");
+            let users = await res.json();
+            document.getElementById("users").innerHTML = 
+            users.map(u => `<P> ${u.name} - ${u.email} </p>`).join("");
+            
         }
 
 
