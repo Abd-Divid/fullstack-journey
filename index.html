@@ -346,10 +346,15 @@
         }
 
         async function loadUsers() {
+            try{
+            document.getElementById("users").innerHTML = "loading..."
             let res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=5");
             let users = await res.json();
             document.getElementById("users").innerHTML = 
             users.map(u => `<P> ${u.name} - ${u.email} </p>`).join("");
+            }catch(error){
+                document.getElementById("users").innerHTML = "Try agian at later , check of network ";
+            }
             
         }
 
