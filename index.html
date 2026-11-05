@@ -108,14 +108,13 @@
         };
         console.log(greet("Abdul Majid"))
 
-        // function sayHello() {
-        //     alert("Hello man, you are great")
-        // }
+        const double = (x) => { 
+            let nnn = x * 2 ;
+            return nnn ;
+        };
+        console.log(double(6));
 
-        // function sayHello(){ 
-        //     let name = "Abd_Divid";
-        //     alert ("Welcome agian " + name + " !")
-        // }
+       
         
         function updateColor(){
             if (count>10){
@@ -227,6 +226,7 @@
             html += `<p><b>sum: $${totalPrice()}</b></p>`;
             document.getElementById("products").innerHTML = html ;
         }
+        console.table(products);
 
         function totalPrice(){
             let total = 0 ;
@@ -298,6 +298,12 @@
         let names = products.map(p => p.name);
         console.log(names);
 
+        let smaller = products.filter(p => p.price < 100);
+        console.log(smaller.length);
+
+        let numes = products.map(p => p.name);
+        console.log(numes);
+        
         let Age = 20 ; 
         let type = Age >= 18 ? "Man" : "Boy";
         console.log(type);
@@ -306,13 +312,17 @@
         console.log(name);
         console.log(price);
 
-        let copy = [ ...tasks , "A spresd task"];
+        let copy = [ ...tasks , "A spreed task"];
         console.log(copy);
         console.log(tasks);
+        
 
         let older = { ...person , age : person.age + 1 };
         console.log(older);
         console.log(person);
+
+        localStorage.setItem("review" , "تمام");
+        console.log(localStorage.getItem("review"));
 
         function updateClock(){
             let now = new Date();
@@ -358,6 +368,15 @@
             }
             
         }
+        
+        async function testFetch() {
+            let r = await fetch("https://jsonplaceholder.typicode.com/users?_limit=3");
+            let us = await r.json();
+            console.log(us.length);
+        }
+        testFetch();
+
+        
 
 
 
