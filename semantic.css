@@ -1,0 +1,11 @@
+.grid{
+      display: grid ;
+      grid-template-columns: 1fr 1fr 1fr ;
+      gap: 10px;
+       }
+
+ article{
+       background: #eef ;
+       border-radius: 8px ;
+       padding: 16px;
+     }
