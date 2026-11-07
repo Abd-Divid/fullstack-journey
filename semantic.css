@@ -5,7 +5,18 @@
        }
 
  article{
+       position: relative;
        background: #eef ;
        border-radius: 8px ;
        padding: 16px;
      }
+
+.badge{
+      position: absolute;
+      top: 8px ;
+      left: 8px ;
+      background: crimson ;
+      color: white ;
+      padding: 2px 8px ;
+      border-radius: 12px ;
+}
