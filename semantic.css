@@ -1,3 +1,7 @@
+:root {
+      --main-color: crimson ;
+      --card-bg: #eef ;
+}
 .grid{
       display: grid ;
       grid-template-columns: 1fr 1fr 1fr ;
@@ -6,7 +10,7 @@
 
  article{
        position: relative;
-       background: #eef ;
+       background: var(--card-bg) ;
        border-radius: 8px ;
        padding: 16px;
      }
@@ -15,7 +19,7 @@
       position: absolute;
       top: 8px ;
       left: 8px ;
-      background: crimson ;
+      background: var(--main-color) ;
       color: white ;
       padding: 2px 8px ;
       border-radius: 12px ;
@@ -29,5 +33,5 @@ nav a {
       transition: color 0.3s;
 }
 nav a:hover {
-      color: crimson;
+      color: var(--main-color);
 }
