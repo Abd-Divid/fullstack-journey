@@ -12,28 +12,35 @@
             <a href="#">الرئيسية</a> | <a href="#">مقالاتي</a> | <a href="#">عني</a>
             <hr>
         </nav>
-        <main class="grid">
-            <article>
-                <span class="badge">جديد</span>
-                <h2>رحلتي مع البرمجة</h2>
-                <p>بدأت من الصفر, واليوم أكتب javaScript... </p>
-            </article>
-            <article>
-                <h2>أدواتي المفضلة</h2>
-                <p>VS Code , GitHub رفقاتي كل يوم ....</p>
-            </article>
-            <article>
-                <h2>هدفي الكبير</h2>
-                <p>أصير مطور Full-stack محترف ....</p>
-            </article>
-            <article>
-                <h2>جامتي</h2>
-                <p>الاستمرار .....</p>
-            </article>
+        <main class="grid" id="postsGrid">
+
         </main>
         <hr>
         <footer>
             <p>كل الحقوق محفوظة _ عبد 2026</p>
         </footer>
+        <script>
+            async function loadPosts() {
+                let grid = document.getElementById("postsGrid");
+                grid.innerHTML = "<p>عم يحمل ....</p>";
+                try{
+                   let r = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=9");
+                   let posts = await r.json();
+                   renderPosts(posts);
+                   } catch {
+                    grid.innerHTML = "<p>صار خطأ! تأكد من اتصالك بالانترنت ";
+                   }
+                }
+            function renderPosts(posts){
+                let grid = document.getElementById("postsGrid");
+                grid.innerHTML = posts.map(p => ` 
+                <article>
+                    <h2>${p.title}</h2>
+                    <p>${p.body}</p>
+                    </article>
+                    `).join("");
+            }
+            loadPosts()
+        </script>
     </body>
 </html>
