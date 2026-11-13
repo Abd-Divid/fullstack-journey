@@ -24,6 +24,7 @@
         </footer>
         <script>
             let allPosts = [ ];
+            let favorites = JSON.parse(localStorage.getItem("favPosts")) || [] ;
             async function loadPosts() {
                 let grid = document.getElementById("postsGrid");
                 grid.innerHTML = "<p>عم يحمل ....</p>";
@@ -45,6 +46,7 @@
                 <article>
                     <h2>${p.title}</h2>
                     <p>${p.body}</p>
+                    <button onclick="toggleFavorite(${p.id})">${favorites.includes(p.id) ? "🌟"  : "⭐"}</button>
                     </article>
                     `).join("");
             }
@@ -55,6 +57,18 @@
                 let filtered = allPosts.filter(p => p.title.toLowerCase().includes(text));
                 renderPosts(filtered);
             });
+
+            function toggleFavorite(id){
+                if(favorites.includes(id)){
+                    favorites = favorites.filter(f => f !== id );
+                }else{
+                    favorites.push(id);
+                }
+                localStorage.setItem("favPosts", JSON.stringify(favorites));
+                let text = searchInput.value.toLowerCase();
+                let filtered = allPosts.filter(p => p.title.toLowerCase().includes(text));
+                renderPosts(filtered);
+            }
         </script>
     </body>
 </html>
