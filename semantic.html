@@ -6,6 +6,7 @@
     </head>
     <body>
         <header>
+            <button id="themeBtn">الوضع الليلي</button>
             <h1>مدونة عبد</h1>
         </header>
         <nav>
@@ -23,6 +24,9 @@
             <p>كل الحقوق محفوظة _ عبد 2026</p>
         </footer>
         <script>
+            if(localStorage.getItem("theme") === "dark"){
+                document.body.classList.add("dark");
+            }
             let allPosts = [ ];
             let favorites = JSON.parse(localStorage.getItem("favPosts")) || [] ;
             async function loadPosts() {
@@ -69,6 +73,11 @@
                 let filtered = allPosts.filter(p => p.title.toLowerCase().includes(text));
                 renderPosts(filtered);
             }
+            let themeBtn = document.getElementById("themeBtn");
+            themeBtn.addEventListener("click" , () => {
+                document.body.classList.toggle("dark");
+                localStorage.setItem("theme", document.body.classList.contains("dark") ? "dark" : "light" );
+            });
         </script>
     </body>
 </html>

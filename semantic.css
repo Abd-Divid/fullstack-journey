@@ -1,6 +1,15 @@
 :root {
       --main-color: crimson ;
       --card-bg: #eef ;
+      body {
+            background: var(--bg);
+            color: var(--text);
+      }
+      body.dark{
+            --bg :  #121212 ;
+            --text: #f0f0ff ;
+            --card-bg: #1e1ee1 ;
+      }
 }
 .grid{
       display: grid ;
