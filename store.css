@@ -1,0 +1,46 @@
+:root {
+      --main-color: crimson ;
+      --card-bg: #eef ;
+      body {
+            background: var(--bg);
+            color: var(--text);
+      }
+      body.dark{
+            --bg :  #121212 ;
+            --text: #f0f0ff ;
+            --card-bg: #1e1ee1 ;
+      }
+}
+.grid{
+      display: grid ;
+      grid-template-columns: 1fr 1fr 1fr ;
+      gap: 10px;
+       }
+
+ article{
+       position: relative;
+       background: var(--card-bg) ;
+       border-radius: 8px ;
+       padding: 16px;
+     }
+
+.badge{
+      position: absolute;
+      top: 8px ;
+      left: 8px ;
+      background: var(--main-color) ;
+      color: white ;
+      padding: 2px 8px ;
+      border-radius: 12px ;
+}
+article:hover{
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 2);
+      transition: transform 0.3s , box-shadow o.3s;
+}
+nav a {
+      transition: color 0.3s;
+}
+nav a:hover {
+      color: var(--main-color);
+}

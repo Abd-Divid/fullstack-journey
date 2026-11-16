@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html lang="ar" dir="rtl">
+    <head>
+        <title>متجر Abd </title>
+        <link rel="stylesheet" href="store.css">
+    </head>
+    <body>
+        <header>
+            <h1>متجر Abd</h1>
+            <p>السلة: <span id="cartCount">0</span>منتج</p>
+        </header>
+        <main class="grid" id="productsGrid"></main>
+
+        <section>
+            <h2> سلة الشراء </h2>
+            <div id="cartItem"></div>
+            <p>المجموع: $<span id="cartTotal">0</span></p>
+        </section>
+
+    </body>
+    <script>
+        let products = [
+            { id: 1, name: "Laptop" , price: 1200},
+            { id: 2, name: "Mouse" , price: 25},
+            { id: 3, name: "keyboard" , price: 45},
+            { id: 4, name: "Headphones" , price: 80},
+            { id: 5, name: "Monitor" , price: 300},
+            { id: 6, name: "Webcam" , price: 60}
+            ];
+
+            console.table(products);
+
+            function renderProducts(){
+                let grid = document.getElementById("productsGrid");
+                grid.innerHTML = products.map(p => `
+                <article> 
+                    <h2>${p.name}</h2>
+                    <p>$${p.price}</p>
+                    <button onclick="addToCart(${p.id})">أضف للسلة </button>
+                </article>
+                `).join("");
+            }
+            renderProducts();
+            
+            let cart =[ ];
+            
+            function addToCart(id){
+                let item = cart.find( x => x.id === id );
+                if (item) {
+                    item.qty = item.qty + 1 ;
+                }else{
+                    cart.push({id: id, qty: 1 });
+                }
+                
+                renderCart();
+                
+            }
+
+            function removeFormatCart(id){
+                cart = cart.filter(x => x.id != id);
+                renderCart();
+            }
+            
+            function renderCart(){
+                let box = document.getElementById("cartItem");
+                let totalQty = 0 ;
+                let total = 0 ;
+                if (cart.length === 0 ){
+                    box.innerHTML = "<p> السلة فاضية </p>";
+                }else{
+                    box.innerHTML = cart.map( x => {
+                        let product = products.find(p => p.id === x.id);
+                        totalQty = totalQty + x.qty;
+                        total = total + product.price * x.qty ;
+                        return `<p> ${product.name} x ${x.qty} _ $${product.price * x.qty} <button onclick="removeFormatCart(${x.id})">❌</button></p>`;
+                    }).join("");
+                }
+                document.getElementById("cartCount").textContent = totalQty ;
+                document.getElementById("cartTotal").textContent = total ;
+            }
+            renderCart();
+            </script>
+</html>
