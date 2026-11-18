@@ -42,7 +42,11 @@
             }
             renderProducts();
             
-            let cart =[ ];
+            let cart = JSON.parse(localStorage.getItem("cart")) ||[];
+
+            function saveCart(){
+                localStorage.setItem("cart" ,JSON.stringify(cart));
+            }
             
             function addToCart(id){
                 let item = cart.find( x => x.id === id );
@@ -51,13 +55,14 @@
                 }else{
                     cart.push({id: id, qty: 1 });
                 }
-                
+                saveCart();
                 renderCart();
                 
             }
 
             function removeFormatCart(id){
                 cart = cart.filter(x => x.id != id);
+                saveCart();
                 renderCart();
             }
             
