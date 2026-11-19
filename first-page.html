@@ -1,0 +1,387 @@
+ <!DOCTYPE html>
+ 
+<html>
+    <head>
+          <title>The first page </title>
+        
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 id="myTitle">Welcome, welcome </h1>
+        <h2 id="clock"></h2>
+       
+        <button onclick="sayHello()"> Click Here for title </button>
+   
+        
+        <p id="counter">0</p>
+      
+       
+        <button onclick="increment()"> click for num+ </button>
+   
+     
+        <button onclick="reset()">click for zero</button>
+        
+        <button onclick="mayns()">click for num- </button>
+        <input id="myNumber" type="number" placeholder="write a number">
+        <button onclick="jumpTo()">jump to number </button>
+        
+        <p id="hint"></p>
+        
+        <button onclick="guess()">Guess</button>
+        
+        <p id="numbers"></p>
+       
+        <button onclick="countToTen()">counter to ten</button>
+      
+        <ul id="goalsList"></ul>
+      
+        <button onclick="showGoals()">showing my goals</button>
+       
+        <input id="newGoal" type="text" placeholder="write a new goal">
+      
+        <button onclick="addGoal()">add a goal</button>
+
+        <div id="card"></div>
+        <button onclick="showCard()">showing your card</button>
+        <button onclick="growUp()">add one age </button>
+
+
+        <input id="num1" type="number" placeholder="The first number">
+        <input id="num2" type="number" placeholder="The second number">
+        <p id="result"></p>
+        <button onclick="doAdd()">sum</button>
+        <button onclick="doMultiply()">multiply</button>
+
+
+        <input id="searchInput" type="text" placeholder="seach for a product ...">
+        <button onclick="searchProducts()">search</button>
+
+
+        <div id="products"></div>
+        <button onclick="showProducts()">showing products</button>
+
+        <input  id="taskInput" type="text" placeholder="new task" onkeydown="checkEnter(event)">
+        <button onclick="addTask()">add a task</button>
+        <ul id="taskList"></ul>
+
+        <p id="countdown"></p>
+        <button onclick="startCountdown()">starting counter down</button>
+
+        <button onclick="sortCheap()">The cheaper first</button>
+
+        <div id="posts"></div>
+        <button onclick="loadPosts()">fetch real post</button>
+
+        <div id="users"></div>
+        <button onclick="loadUsers()">fetch users</button>
+
+
+        <h2> My trip had started </h2>
+        <p>I'm Abd, and this is my first website </p>
+        <hr>
+        <a href="https://www.google.com"> go to Google </a>
+        <hr>
+        <img src="C:\Users\st\Pictures\my_phone" alt="this is trying">
+        <ul>
+            <li>learing HTML</li>
+            <li>learing CSS</li>
+            <li> only ==> Full-stack</li>
+        </ul>
+        <div class="boxes">
+            <div class="box">1</div>
+            <div class="box">2</div>
+            <div class="box">3</div>
+        </div>
+
+       <script>
+        let nam = "Abd_Divid";
+        console.log("Welcome The World");
+        console.log("This is : " + nam);
+        let age = 22 ;
+        console.log("My age is: " + age);
+        console.log("Also, Hi " + nam);
+
+        const greet = (nam) => {
+            let msg ="welcome " + nam + " !";
+            return msg ; 
+        };
+        console.log(greet("Abdul Majid"))
+
+        const double = (x) => { 
+            let nnn = x * 2 ;
+            return nnn ;
+        };
+        console.log(double(6));
+
+       
+        
+        function updateColor(){
+            if (count>10){
+                document.getElementById("counter").style.color ="red";
+            }else{
+                document.getElementById("counter").style.color ="black";
+            }
+        }
+        function sayHello(){
+            document.getElementById("myTitle").textContent ="Welcome in World JavaScript!!"
+        }
+        let count =0 ;
+        let secret = 7 ;
+        function increment(){
+            count ++ ;
+            document.getElementById("counter").textContent = count ;
+            updateColor();
+        }
+        function reset(){
+            count = 0 ;
+            document.getElementById("counter").textContent = count;
+            updateColor();
+        }
+        function mayns (){
+            count --  ;
+            document.getElementById("counter").textContent = count ;
+            updateColor();
+        }
+        function jumpTo(){
+            let n = document.getElementById("myNumber").value;
+            count = Number(n);
+            document.getElementById("counter").textContent = count ;
+            updateColor();
+        }
+        function guess(){
+            let g = Number(document.getElementById("myNumber").value);
+            if (g===secret){
+                document.getElementById("hint").textContent = "True ✅ ";
+            }else if (g > secret){
+                document.getElementById("hint").textContent = "False❌  ,small ";
+            }else{
+                document.getElementById("hint").textContent = "False❌  ,large  "
+
+            }
+        }
+        function countToTen(){
+            let n = Number(document.getElementById("myNumber").value);
+            let text="";
+            for(let i = 1; i<=n ; i++){
+                text = text + i + " ";
+            }
+            document.getElementById("numbers").textContent = text ;
+        }
+        let goals = ["learn HTML","learn CSS","learn JavaScript","you will get Full-Stack"];
+        function showGoals(){
+            let html = "";
+            for (let i = 0 ; i < goals.length ; i++ ){
+                html = html + "<li>" + goals[i] + "</li>";
+            }
+            document.getElementById("goalsList").innerHTML = html ;
+        }
+
+        function addGoal(){
+            let g = document.getElementById("newGoal").value;
+            goals.push(g);
+            showGoals();
+        }
+        let person = { name: "Abd" , age : 20 , city : "Damascus", Job :"The future programming" };
+
+        function showCard(){
+            document.getElementById("card").innerHTML = 
+            "<h3>" + person.name + "</h3>" +
+            "<p>" + person.age + "</p>" +
+            "<p>" + person.city + "</p>" +
+            "<p>" + person.Job + "</p>" 
+        }
+
+        function growUp(){
+            person.age = person.age + 1   ;
+            showCard();
+        }
+        
+        
+        const add = (a, b) => a + b ;
+
+        function doAdd(){
+            let x = Number(document.getElementById("num1").value);
+            let y = Number(document.getElementById("num2").value);
+            let sum = add(x, y);
+            document.getElementById("result").textContent = "the result is " + sum ;
+        }
+        
+        const multiply = (a, b) => a * b ;
+
+        function doMultiply(){
+            let x = Number(document.getElementById("num1").value);
+            let y = Number(document.getElementById("num2").value);
+            let product = multiply(x, y);
+            document.getElementById("result").textContent = "The result is " + product ;
+        }
+
+        let products = [
+            { name : "Labtub" , price : 1500 }, 
+            { name : "mause" , price : 25 },
+            { name : "keypowrd" , price : 45 }
+        ];
+        function showProducts(){
+            let html = products.map(({name , price }) => `<p> ${name} - $${price} ${price > 100 ? "Expensive" : "Good"} </p>`).join("");
+            html += `<p><b>sum: $${totalPrice()}</b></p>`;
+            document.getElementById("products").innerHTML = html ;
+        }
+        console.table(products);
+
+        function totalPrice(){
+            let total = 0 ;
+            for ( let i = 0 ; i < products.length ;i++){
+                total = total + products[i].price;
+            }
+            return total ;
+        }
+        
+        let tasks = ["learning JavaScript" , "every day I work commit"];
+        let saved = localStorage.getItem("myTasks");
+        if (saved){
+            tasks = JSON.parse(saved);
+        }
+
+        function renderTasks(){
+            let html = "";
+            tasks.forEach((task , i ) => {
+                html = html + ` <li> ${task} <button onclick="deleteTask(${i})">❌</button></li>`;
+            });
+            document.getElementById("taskList").innerHTML = html ; 
+
+        }
+        renderTasks();
+
+        function addTask(){
+            let t = document.getElementById("taskInput").value;
+            if (t === ""){
+                return;
+            }
+            tasks.push(t);
+            renderTasks();
+            localStorage.setItem("myTasks" , JSON.stringify(tasks));
+            document.getElementById("taskInput").value = "" ;
+        }
+        function deleteTask(i){
+            tasks.splice(i , 1);
+            renderTasks();
+            localStorage.setItem("myTasks" , JSON.stringify(tasks));
+        }
+
+        function checkEnter(event){
+            if (event.key === "Enter"){
+                addTask();
+            }
+        }
+
+        function startCountdown(){
+            let i = Number(document.getElementById("myNumber").value);
+            let text = "";
+            while (i>0){
+                text = text + i + " " ; 
+                i-- ; 
+            }
+            document.getElementById("countdown").textContent = text  + " starting ";
+        }
+
+        function searchProducts(){
+            let q = document.getElementById("searchInput").value;
+            let results = products.filter(p => p.name.includes(q));
+            let html = "";
+            results.forEach(p  => {
+                html += `<p>${p.name} - $${p.price}</p>`;
+
+            });
+            document.getElementById("products").innerHTML = html ;
+        }
+
+        let names = products.map(p => p.name);
+        console.log(names);
+
+        let smaller = products.filter(p => p.price < 100);
+        console.log(smaller.length);
+
+        let numes = products.map(p => p.name);
+        console.log(numes);
+        
+        let Age = 20 ; 
+        let type = Age >= 18 ? "Man" : "Boy";
+        console.log(type);
+
+        let { name, price } = products[0];
+        console.log(name);
+        console.log(price);
+
+        let copy = [ ...tasks , "A spreed task"];
+        console.log(copy);
+        console.log(tasks);
+        
+
+        let older = { ...person , age : person.age + 1 };
+        console.log(older);
+        console.log(person);
+
+        localStorage.setItem("review" , "تمام");
+        console.log(localStorage.getItem("review"));
+
+        function updateClock(){
+            let now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+        }
+        setInterval(updateClock , 1000);
+        updateClock();
+
+        let timer = setInterval(updateClock , 1000);
+        clearInterval(timer);
+
+        let sorted = [...products].sort((a, b) => a.price - b.price );
+        console.log(sorted);
+
+        function sortCheap(){
+            let sorted = [...products].sort((a, b) => a.price - b.price);
+            let html = sorted.map(({name , price}) => `<p> ${name} - $${price} ${price > 100 ? "Expensive" : "Cheap"}</p>`).join("");
+            document.getElementById("products").innerHTML = html ;
+        }
+        
+        function loadPosts(){
+            document.getElementById("posts").innerHTML ="loading...";
+            fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+            .then(res => res.json())
+            .then(posts => {
+                document.getElementById("posts").innerHTML =
+                posts.map(p => `<p> ${p.title}</p>`).join("");
+            })
+            .catch(() => {
+                document.getElementById("posts").innerHTML = "Try agian at later time ";
+            });
+        }
+
+        async function loadUsers() {
+            document.getElementById("users").innerHTML = "loading..."
+            try{
+            let res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=5");
+            let users = await res.json();
+            document.getElementById("users").innerHTML = 
+            users.map(u => `<P> ${u.name} - ${u.email} </p>`).join("");
+            }catch(error){
+                document.getElementById("users").innerHTML = "Try agian at later , check of network ";
+            }
+            
+        }
+        
+        async function testFetch() {
+            let r = await fetch("https://jsonplaceholder.typicode.com/users?_limit=3");
+            let us = await r.json();
+            console.log(us.length);
+        }
+        testFetch();
+
+        
+
+
+
+       </script>
+
+    </body>
+    
+    </html>     
