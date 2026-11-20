@@ -1,6 +1,6 @@
 # Full-Stack Journey 
 
-My journey to becoming a full-stack web developer, start on October 1 , 2026 .
+My journey to becoming a full-stack web developer, started on October 1 , 2026 .
 I learn by building real projects, one step at a time.
 
 ## Projects
