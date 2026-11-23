@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <title>أول Reart</title>
+</head>      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.26.4/babel.min.js"></script>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        function Welcome(){
+            return <h1>أهلا بك في موقعي</h1>;
+        }
+        let root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(
+            <div> 
+                <Welcome />
+                <Welcome />
+                <Welcome />
+                </div>
+        );
+    </script>
+</body>
+</html>
