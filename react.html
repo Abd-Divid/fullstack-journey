@@ -9,16 +9,25 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        function Welcome(){
-            return <h1>أهلا بك في موقعي</h1>;
+        function Welcome(props){
+            return <h1>أهلا {props.name} </h1>;
+        }
+
+        function ProductCard(props){
+            return(
+                <div>
+                    <h3>{props.name}</h3>
+                    <p>${props.price}</p>
+                </div>
+            );
         }
         let root = ReactDOM.createRoot(document.getElementById("root"));
         root.render(
             <div> 
-                <Welcome />
-                <Welcome />
-                <Welcome />
-                </div>
+                <ProductCard name="Mouse" price={25} />
+                <ProductCard name="Keyboard" price={45} />
+                <ProductCard name="Headphones" price={80} />
+            </div>
         );
     </script>
 </body>
