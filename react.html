@@ -9,6 +9,22 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
+        let products = [
+            { id: 1, name: "Laptop" , price: 1200 },
+            { id: 2, name: "Mouse" , price: 25 },
+            { id: 3, name: "keyboard" , price: 45 },
+            { id: 4, name: "Headphones" , price: 80 },
+            { id: 5, name: "Monitor" , price: 300 },
+            { id: 6, name: "Webcom" , price: 60 },
+            { id: 7, name: "stand" , price: 10 },
+        ];
+        function ProductList(){
+            return (
+                <div>
+                    {products.map(p => <ProductCard key={p.id} name={p.name} price={p.price} />)}
+                    </div>
+            );
+        }
         function Welcome(props){
             return <h1>أهلا {props.name} </h1>;
         }
@@ -22,13 +38,7 @@
             );
         }
         let root = ReactDOM.createRoot(document.getElementById("root"));
-        root.render(
-            <div> 
-                <ProductCard name="Mouse" price={25} />
-                <ProductCard name="Keyboard" price={45} />
-                <ProductCard name="Headphones" price={80} />
-            </div>
-        );
+        root.render( <ProductList />);
     </script>
 </body>
 </html>
